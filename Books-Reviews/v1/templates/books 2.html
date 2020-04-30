@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ book_title }}
+{% endblock %}
+
+{% block body %}
+<center>
+    <div class="container">
+        <h1>You are in webpage for {{ book_title }}</h1>
+        <h1>This book is written by {{ book_author }}</h1> 
+        <h1>This book is written under {{ book_isbn }} isbn</h1>
+        <h1>This book total of {{ total_reviews }} reviews with an average rating of {{ average_rating }}</h1>
+        <form action="{{ url_for('add_reviews', user = user, book_id = book_id) }}" method="POST">
+            <input type="radio" name="rating" value="1" checked="checked">1
+            <input type="radio" name="rating" value="2">2
+            <input type="radio" name="rating" value="3">3
+            <input type="radio" name="rating" value="4">4
+            <input type="radio" name="rating" value="5">5 <br>
+            <textarea name="review" cols="100" rows="5"></textarea><br>
+            <input type="submit" name="add_review" value="Add Review">
+        </form>  
+        {{ error_message }}
+        {{ review }}
+        {{ success_message }}
+    </div>
+</center>
+    
+{% endblock %}

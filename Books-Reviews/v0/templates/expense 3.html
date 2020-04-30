@@ -1,0 +1,13 @@
+<!-- inheritence in flask and ginger to inherit the properties of layout.html -->
+{% extends "layout1.html" %}
+
+{% block header %}
+  <h1>Expense Entry<h1>
+{% endblock %}
+{% block body %}
+    <a href="{{ url_for('index') }}"><h3>Home</h3></a>
+    <form action="{{ url_for('expense')}}" method="POST">
+      <input type="text" name="name" value="Name">
+      <input type="submit" name="submit" value="submit">
+    </form>
+{% endblock %}

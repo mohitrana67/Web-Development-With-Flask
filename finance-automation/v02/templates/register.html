@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Registeration
+{% endblock %}
+
+{% block body %}
+    <form action="{{ url_for('register_user') }}" method="POST">
+        <input type="email" name="user_username" placeholder="email address"><br>
+        <input type="password" name="user_password" placeholder="password"><br>
+        <input type="text" name="user_first_name" placeholder="first name"><br>
+        <input type="text" name="user_last_name" placeholder="last name"><br>
+        <input type="text" name="user_phone_number" placeholder="phone number"><br>
+        <input type="text" name="user_country" placeholder="Country"><br>
+        <input type="text" name="user_province" placeholder="State/Province"><br>
+        <input type="text" name="user_city" placeholder="City"><br>
+        <input type="text" name="user_postal_code" placeholder="Postal Code"><br> 
+        <input type="submit" name="user_registeration" value="Register"><br>
+        <h1>{{ message_registeration }}</h1>
+    </form>
+{% endblock %}

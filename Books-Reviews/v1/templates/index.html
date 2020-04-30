@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block additonaljs %}
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+{% endblock %}
+{% block title %}
+    Registeration
+{% endblock %}
+
+{% block body %}
+    <a href="{{ url_for('register_user') }}">Register</a>
+    {{ message_registeration }}
+    <a href="{{ url_for('login_user') }}">Login</a>
+    {{ message_login }}
+    <h1 id="display">0</h1>
+    <button id="increment">Increment</button>
+{% endblock %}

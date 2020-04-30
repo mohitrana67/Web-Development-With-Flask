@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome {{ username }}
+{% endblock %}
+
+{% block body %}
+
+    <a href="{{ url_for('logout', user=username) }}">Logout</a><br>
+
+    <form action="{{ url_for('search_books', user=username )}}" method="POST">
+        <input type="text" name="attribute" placeholder="Please enter the book title you want to search for"><br>
+        <input type="submit" value="Search">
+    </form>
+    {{ error_message }}
+    {% for book in books %}
+        <a href="{{ url_for('books', user=username, book_id = book.id) }}">{{ book.book_title }}</a><br>
+    {% endfor %}
+{% endblock %}

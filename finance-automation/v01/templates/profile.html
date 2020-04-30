@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome {{ session[username][0] }} {{ session[username][1] }}
+{% endblock %}
+
+{% block body %}
+    Hello {{ session[username][0] }} {{ session[username][1] }}
+{% endblock %}

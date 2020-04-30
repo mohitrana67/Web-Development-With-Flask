@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Expenses Entry</title>
+  </head>
+  <body>
+    <h1>Hello You are in Expense Entry Dialogue Box</h1>
+    <!-- Getting varibale from the app.py and put it in the HTML directly -->
+    <!-- THis is the built in language comes with flask know as giger 2 which is a template language --->
+    <h2>{{ headline }}</h2>
+    <!-- conditions in Ginger 2 and it is advisable to do it inside the HTML file as There will be lot more functionaltiy with conditions in HTMl -->
+    {% if is_new_year %}
+      <h2>Current Date and time is {{ new_year }}</h2>
+    {% endif %}
+
+    <!-- For loops in ginger 2 -->
+    <ul>
+      {% for name in names %}
+        <li>{{ name }}</li>
+      {% endfor %}
+    </ul>
+
+    <!-- Expenses Entry from different page -->
+    <a href="{{ url_for('expense')}}"><h3>Expense Entry</h3></a>
+
+    <h1>Name is: {{ name }}</h1>
+  </body>
+</html>

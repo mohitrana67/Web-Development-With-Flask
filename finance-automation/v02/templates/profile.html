@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome {{ session[username][0] }} {{ session[username][1] }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Hello {{ session[username][0] }} {{ session[username][1] }}</h1>
+
+    <h3>You are an accountant and you want to get information about all the finance</h3>
+
+    <form action="{{ url_for('upload_data', user=username) }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit">
+    </form>
+
+    <span> 
+        <table border="2px">
+            <tr>
+                <th>Account Type</th>
+                <th>Account Number</th>
+                <th>Transaction Date</th>
+                <th>Cheque Number</th>
+                <th>Expense For</th>
+                <th>Description 1</th>
+                <th>Description 2</th>
+                <th>CAD</th>
+                <th>USD</th>
+                <th>GST/HST</th>
+                <th>PST/QST</th>
+                <th>PVT</th>
+            </tr>
+            {% if uploadedFile is defined %}
+                {% for i in uploadedFile %}
+                    <tr>
+                        <td>{{ i[0] }}</td>
+                        <td>{{ i[1] }}</td>
+                        <td>{{ i[2] }}</td>
+                        <td>{{ i[3] }}</td>
+                        <td>
+                            <select name="expenseFor" id="">
+                                <option value="1">Sales from Load and Misclleneous Sales</option>
+                                <option value="2">Friend Loan</option>
+                            </select>
+                        </td>
+                        <td>{{ i[4] }}</td>
+                        <td>{{ i[5] }}</td>
+                        <td>{{ i[6] }}</td>
+                        <td>{{ i[7] }}</td>
+                        <td>
+                            <input type="text" name="GST" placeholder="GST/HST">
+                        </td>
+                        <td>
+                            <input type="text" name="PST" placeholder="PST/QST">
+                        </td>
+                        <td>
+                            <input type="text" name="PVT" placeholder="PVT">
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+            
+        
+    </span>
+{% endblock %}

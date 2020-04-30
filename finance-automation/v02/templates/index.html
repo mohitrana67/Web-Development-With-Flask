@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block body %}
+    <a href="{{ url_for('register_user') }}">Register</a>
+    {{ message_registeration }}
+    <a href="{{ url_for('login_user') }}">Login</a>
+    {{ message_login }}
+{% endblock %}
