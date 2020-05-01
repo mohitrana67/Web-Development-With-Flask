@@ -90,14 +90,17 @@ class CSV:
                 for row in readCSV:
                     if counter != 0:
                         temp_array = []
-                        temp_array.append(row[0])
-                        temp_array.append(row[1])
-                        temp_array.append(row[2])
-                        temp_array.append(row[3])
-                        temp_array.append(row[4])
-                        temp_array.append(row[5])
-                        temp_array.append(row[6])
-                        temp_array.append(row[7])
+                        totalNoOfFields = len(row)
+                        for i in range(0,totalNoOfFields):
+                            temp_array.append(row[i])
+                        # temp_array.append(row[0])
+                        # temp_array.append(row[1])
+                        # temp_array.append(row[2])
+                        # temp_array.append(row[3])
+                        # temp_array.append(row[4])
+                        # temp_array.append(row[5])
+                        # temp_array.append(row[6])
+                        # temp_array.append(row[7])
 
                         sheet.append(temp_array)
                     # else:
@@ -109,14 +112,17 @@ class CSV:
             for row in csv_input:
                     if counter != 0:
                         temp_array = []
-                        temp_array.append(row[0])
-                        temp_array.append(row[1])
-                        temp_array.append(row[2])
-                        temp_array.append(row[3])
-                        temp_array.append(row[4])
-                        temp_array.append(row[5])
-                        temp_array.append(row[6])
-                        temp_array.append(row[7])
+                        totalNoOfFields = len(row)
+                        for i in range(0,totalNoOfFields):
+                            temp_array.append(row[i])
+                        # temp_array.append(row[0])
+                        # temp_array.append(row[1])
+                        # temp_array.append(row[2])
+                        # temp_array.append(row[3])
+                        # temp_array.append(row[4])
+                        # temp_array.append(row[5])
+                        # temp_array.append(row[6])
+                        # temp_array.append(row[7])
 
                         sheet.append(temp_array)
                     counter += 1

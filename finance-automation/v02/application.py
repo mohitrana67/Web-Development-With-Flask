@@ -175,8 +175,12 @@ def upload_data(user):
             readCSV = CSV(f,1)
 
         uploadedFile = readCSV.read_csv_with_filelocation()
+        
+        totalNumberOfFields = 0
+        if uploadedFile != []:
+            totalNumberOfFields = len(uploadedFile[0])
 
-        return render_template("profile.html", username=user, uploadedFile = uploadedFile)
+        return render_template("profile.html", username=user, uploadedFile = uploadedFile, totalNumberOfFields=totalNumberOfFields)
 
         # return redirect(url_for('profile', user=user, uploadedFile = uploadedFile))
 

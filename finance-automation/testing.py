@@ -50,14 +50,17 @@ def read_csv(file_path):
                 sheet["USD$"].append(row[7])
                 
                 temp_array = []
-                temp_array.append(row[0])
-                temp_array.append(row[1])
-                temp_array.append(row[2])
-                temp_array.append(row[3])
-                temp_array.append(row[4])
-                temp_array.append(row[5])
-                temp_array.append(row[6])
-                temp_array.append(row[7])
+                totalNoOfFields = len(row)
+                for i in range(0,totalNoOfFields):
+                    temp_array.append(row[i])
+                # temp_array.append(row[0])
+                # temp_array.append(row[1])
+                # temp_array.append(row[2])
+                # temp_array.append(row[3])
+                # temp_array.append(row[4])
+                # temp_array.append(row[5])
+                # temp_array.append(row[6])
+                # temp_array.append(row[7])
 
                 sheet_updated.append(temp_array)
                 
@@ -66,10 +69,12 @@ def read_csv(file_path):
             
             counter += 1 
         
-        print(sheet_updated[0])
+        return sheet_updated
 
-read_csv("test.csv")
-
+sheet = read_csv("test.csv")
+print(sheet)
+# out = read_csv("test.csv")
+# print(out)
 # janFeb = read_csv("jan-feb.csv")
 # mar = read_csv("march.csv")
 # mar_2019 = read_csv("mar-2019.csv")
