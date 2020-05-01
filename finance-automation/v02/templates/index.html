@@ -5,8 +5,10 @@
 {% endblock %}
 
 {% block body %}
+    <!-- This is the link to the register page -->
     <a href="{{ url_for('register_user') }}">Register</a>
     {{ message_registeration }}
+    <!-- ths is the link to the login page -->
     <a href="{{ url_for('login_user') }}">Login</a>
     {{ message_login }}
 {% endblock %}

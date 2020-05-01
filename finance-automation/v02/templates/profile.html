@@ -17,55 +17,36 @@
 
     <span> 
         <table border="2px">
+            <!-- adding Header rows to the table from the csv header -->
             <tr>
-                <th>Account Type</th>
-                <th>Account Number</th>
-                <th>Transaction Date</th>
-                <th>Cheque Number</th>
-                <th>Expense For</th>
-                <th>Description 1</th>
-                <th>Description 2</th>
-                <th>CAD</th>
-                <th>USD</th>
+                <!-- We are setting the header robustly -->
+                {% for i in uploadedFileHeader %}
+                    <th>{{ i }}</th>
+                {% endfor %}
                 <th>GST/HST</th>
                 <th>PST/QST</th>
                 <th>PVT</th>
             </tr>
+            <!-- we are checking if we received the uploaded file -->
             {% if uploadedFile is defined %}
+                <!-- we are looping in the uploadedfile to get the value of each data` -->
                 {% for i in uploadedFile %}
-                    <tr>
-                        {% for j in range(0, totalNumberOfFields) %}
-                            <td>{{ i[j] }}</td>
-                        {% endfor %}
-                        <td><input type="text" placeholder="Enter GST"></td>
-                        <!-- <td>{{ i[0] }}</td>
-                        <td>{{ i[1] }}</td>
-                        <td>{{ i[2] }}</td>
-                        <td>{{ i[3] }}</td>
-                        <td>
-                            <select name="expenseFor" id="">
-                                <option value="1">Sales from Load and Misclleneous Sales</option>
-                                <option value="2">Friend Loan</option>
-                            </select>
-                        </td>
-                        <td>{{ i[4] }}</td>
-                        <td>{{ i[5] }}</td>
-                        <td>{{ i[6] }}</td>
-                        <td>{{ i[7] }}</td>
-                        <td>
-                            <input type="text" name="GST" placeholder="GST/HST">
-                        </td>
-                        <td>
-                            <input type="text" name="PST" placeholder="PST/QST">
-                        </td>
-                        <td>
-                            <input type="text" name="PVT" placeholder="PVT">
-                        </td> -->
-                    </tr>
+                    <form action="#">
+                        <tr>
+                            <!-- we are looping every record(array) of uploadedfile to get each data -->
+                            {% for j in range(0, totalNumberOfFields) %}
+                                <!-- adding data to the table data's -->
+                                <td>{{ i[j] }}</td>
+                            {% endfor %}
+                            <!-- inserting GST,PST and PVT column at the end of every row to add the GST -->
+                            <td><input type="text" placeholder="Enter GST/HST"></td>
+                            <td><input type="text" placeholder="Enter PST/QST"></td>
+                            <td><input type="text" placeholder="Enter PVT"></td>
+                            <td><input type="submit"></td>
+                        </tr>
+                    </form>
                 {% endfor %}
             {% endif %}
         </table>
-            
-        
     </span>
 {% endblock %}

@@ -162,6 +162,7 @@ def killall():
     session.clear()
     return "Cleared"
 
+# uploading csv file and showing it to the user 
 @app.route('/uploadfile/<user>', methods=["POST"])
 def upload_data(user):
     if request.method == 'POST':
@@ -179,8 +180,10 @@ def upload_data(user):
         totalNumberOfFields = 0
         if uploadedFile != []:
             totalNumberOfFields = len(uploadedFile[0])
+            uploadedFileData = uploadedFile[1:]
+            uploadedFileHeader = uploadedFile[0]
 
-        return render_template("profile.html", username=user, uploadedFile = uploadedFile, totalNumberOfFields=totalNumberOfFields)
+        return render_template("profile.html", username=user, uploadedFile = uploadedFileData, uploadedFileHeader = uploadedFileHeader, totalNumberOfFields=totalNumberOfFields)
 
         # return redirect(url_for('profile', user=user, uploadedFile = uploadedFile))
 

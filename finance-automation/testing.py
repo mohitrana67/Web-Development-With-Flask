@@ -39,7 +39,7 @@ def read_csv(file_path):
                  "USD$":[]}
         sheet_updated = []
         for row in readCSV:
-            if counter != 0:
+            if counter >= 0:
                 sheet["Account Type"].append(row[0])
                 sheet["Account Number"].append(row[1])
                 sheet["Transaction Date"].append(row[2])
@@ -69,7 +69,9 @@ def read_csv(file_path):
             
             counter += 1 
         
-        return sheet_updated
+        header = sheet_updated[0]
+        data = sheet_updated[1:]
+        return data
 
 sheet = read_csv("test.csv")
 print(sheet)
