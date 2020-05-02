@@ -1,0 +1,12 @@
+body{
+    background-color: aqua;
+}
+
+.numberCell{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.disappear{
+    display: none;
+}
