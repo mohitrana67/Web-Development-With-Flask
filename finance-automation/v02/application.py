@@ -15,11 +15,7 @@ app = Flask(__name__)
 # app.config["SESSION_PERMANENT"] = False
 # app.config["SESSION_TYPE"] = "filesystem"
 # Session(app)
-app.secret_key = os.urandom(24) 
-
-# Set up database
-# engine = create_engine("postgres://aagwkpzqcmjlcp:632797451d6b8c816f564ec9fe08df08ae1278b0d106c5ef0d19649f7db45231@ec2-174-129-33-156.compute-1.amazonaws.com:5432/deln6atfh1l79a")
-# db = scoped_session(sessionmaker(bind=engine))
+app.secret_key = os.urandom(24)
 
 #hashing the passwod
 def hash_password(password):

@@ -95,8 +95,6 @@ class CSV:
                             temp_array.append(row[i])
 
                         sheet.append(temp_array)
-                    # else:
-                    #     print(f"Column Name is {str(row[0])}")
                     counter += 1
         else:
             stream  = io.StringIO(self.file.stream.read().decode("UTF8"), newline=None)
