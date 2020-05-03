@@ -1,5 +1,3 @@
-
-
 var createSudokuButton = document.getElementById("createSudoku");
 
 createSudokuButton.addEventListener("click",createSudoku);
@@ -24,9 +22,20 @@ function createSudoku(){
         for(j=0;j<9;j++){
             var newCell = newRow.insertCell(j);
 
-            // Append a text node to the cell
-            var newText  = document.createTextNode(j);
+            // creating a new text node]
+            var e = i+","+j
+            var newText  = document.createTextNode(e);
+
+            // Creating a element INPUT
+            var x = document.createElement("INPUT");
+
+            // Settting attributes of the element INPUT
+            x.setAttribute("type", "text");
+            x.setAttribute("placeholder", "Pleace enter a number")
+
+            //Appending a input type or text to the cell
             newCell.appendChild(newText);
+            // newCell.appendChild(x);
             newCell.classList.add("numberCell")
         }
         // var newCell = newRow.insertCell(0);
