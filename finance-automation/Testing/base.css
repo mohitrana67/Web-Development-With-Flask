@@ -10,3 +10,9 @@ body{
 .disappear{
     display: none;
 }
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline;
+}
