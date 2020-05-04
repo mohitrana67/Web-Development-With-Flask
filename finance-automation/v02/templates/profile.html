@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% block additonalcss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
 {% block title %}
     Welcome {{ session[username][0] }} {{ session[username][1] }}
 {% endblock %}
@@ -49,4 +53,7 @@
             {% endif %}
         </table>
     </span>
+{% endblock %}
+{% block additonaljs %}
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
 {% endblock %}
